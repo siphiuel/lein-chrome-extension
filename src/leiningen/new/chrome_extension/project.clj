@@ -8,7 +8,11 @@
                  [prismatic/dommy "1.1.0"]]
   :source-paths ["src"]
   :profiles {:dev
-             {:plugins [[lein-cljsbuild "1.1.0"]
+             {:dependencies [[com.cemerick/piggieback "0.2.1"]
+                             [org.clojure/tools.nrepl "0.2.10"]
+                             [weasel "0.7.0" :exclusions [org.clojure/clojurescript]]]
+              :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+              :plugins [[lein-cljsbuild "1.1.0"]
                         [lein-chromebuild "0.3.0"]]
               :cljsbuild
               {:builds
